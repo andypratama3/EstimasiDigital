@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('dashboard.index');
     // return redirect()->route('login');
 });
+Route::get('/1', function () {
+    return view('create');
+});
+
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
