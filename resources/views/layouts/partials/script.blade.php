@@ -21,4 +21,55 @@
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  <script>
+    $(document).ready(function() {
+        $('.table').on('click', '.btn-delete', function (e) {
+            e.preventDefault();
+            let url = $(this).data('url');
+            let id = $(this).data('id');
+            
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Data akan dihapus!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!',
+                reverseButtons: true,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: {
+                            '_token': '{{ csrf_token() }}',
+                            '_method': 'DELETE'
+                        },
+                        success: function (response) {
+                            Swal.fire({
+                                title: 'Berhasil!',
+                                text: 'Data berhasil dihapus',
+                                icon: 'success',
+                                confirmButtonColor: '#3085d6'
+                            }).then(() => {
+                                window.location.reload();
+                            });
+                        },
+                        error: function (error) {
+                            Swal.fire({
+                                title: 'Error!',
+                                text: 'Gagal menghapus data',
+                                icon: 'error',
+                                confirmButtonColor: '#d33'
+                            });
+                            console.log(error);
+                        }
+                    });
+                }
+            });
+        });
+    });
+  </script>
+
 @stack('scripts')

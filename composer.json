@@ -16,7 +16,7 @@
         "spatie/laravel-permission": "^6.23",
         "infyomlabs/laravel-generator": "^6.0",
         "infyomlabs/adminlte-templates": "^6.0",
-        "doctrine/dbal": "^3.6"
+        "doctrine/dbal": "^3.6",
 
     },
     "require-dev": {

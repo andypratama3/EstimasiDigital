@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class KlipingDigital extends Model
 {
+    use SoftDeletes;
+
     public $table = 'kliping_digital';
 
     public $fillable = [
@@ -21,6 +24,8 @@ class KlipingDigital extends Model
         'updated_by',
         'is_deleted'
     ];
+
+    protected $deleted_at = ['deleted_at'];
 
     protected $casts = [
         'judul' => 'string',

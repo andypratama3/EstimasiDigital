@@ -236,7 +236,7 @@
                     <div class="col-md-6">
                         <small class="text-muted">
                             <strong>Dibuat Oleh:</strong>
-                            <span class="badge bg-primary">
+                            <span class="text-white badge bg-primary">
                                 {{ $klipingDigital->createdBy->name ?? Auth::user()->name }}
                             </span>
                         </small>
