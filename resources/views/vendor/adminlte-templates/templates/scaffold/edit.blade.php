@@ -2,6 +2,8 @@
 {{-- EDIT --}}
 @@extends('layouts.dashboard')
 
+@@section('title', '{{ $config->modelNames->human }}')
+
 @@section('content')
 
 <div class="content-wrapper">

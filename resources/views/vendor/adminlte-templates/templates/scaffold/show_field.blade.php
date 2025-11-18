@@ -1,4 +1,7 @@
+@section('title', "$fieldTitle")
+
 <!-- {{ $fieldTitle }} Field -->
+
 <div class="col-sm-12">
 @if($config->options->localized)
     @{!! Form::label('{{ $fieldName }}', __('models/{{ $config->modelNames->camelPlural }}.fields.{{ $fieldName }}').':') !!}
