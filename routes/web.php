@@ -28,5 +28,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::resource('bukuDigitals', App\Http\Controllers\BukuDigitalController::class);
     Route::resource('jurnalDigitals', App\Http\Controllers\JurnalDigitalController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
+    Route::resource('users', App\Http\Controllers\UserController::class);
 
 });

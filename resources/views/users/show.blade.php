@@ -8,16 +8,16 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                        Detail Buku Digital
-                    </h4>
+                                                    Detail User
+                                            </h4>
 
                     <div class="row">
-                        @include('buku_digitals.show_fields')
+                        @include('users.show_fields')
                     </div>
 
-                    <a class="btn btn-light" href="{{ route('bukuDigitals.index') }}">
-                        Kembali
-                    </a>
+                    <a class="btn btn-light" href="{{ route('users.index') }}">
+                                                    Kembali
+                                            </a>
                 </div>
             </div>
         </div>

@@ -6,7 +6,7 @@
 <div class="col-md-12 grid-margin">
     <div class="row">
         <div class="mb-4 col-12 col-xl-8 mb-xl-0">
-            <h3 class="font-weight-bold">Welcome Aamir</h3>
+            <h3 class="font-weight-bold">Welcome {{ Auth::user()->name ?? '' }}</h3>
             <h6 class="mb-0 font-weight-normal">All systems are running smoothly! You have <span class="text-primary">3
                     unread alerts!</span></h6>
         </div>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="ml-2">
                             <h4 class="location font-weight-normal">Bangalore</h4>
-                            <h6 class="font-weight-normal">India</h6>
+                            <h6 class="font-weight-normal">Indonesia</h6>
                         </div>
                     </div>
                 </div>
@@ -52,8 +52,8 @@
             <div class="mb-4 col-md-6 stretch-card transparent">
                 <div class="card card-tale">
                     <div class="card-body">
-                        <p class="mb-4">Today’s Bookings</p>
-                        <p class="mb-2 fs-30">4006</p>
+                        <p class="mb-4">Total Buku</p>
+                        <p class="mb-2 fs-30">{{ $buku }} Buku</p>
                         <p>10.00% (30 days)</p>
                     </div>
                 </div>
@@ -61,8 +61,8 @@
             <div class="mb-4 col-md-6 stretch-card transparent">
                 <div class="card card-dark-blue">
                     <div class="card-body">
-                        <p class="mb-4">Total Bookings</p>
-                        <p class="mb-2 fs-30">61344</p>
+                        <p class="mb-4">Total Kliping</p>
+                        <p class="mb-2 fs-30">{{ $kliping }} Kliping</p>
                         <p>22.00% (30 days)</p>
                     </div>
                 </div>
@@ -72,8 +72,8 @@
             <div class="mb-4 col-md-6 mb-lg-0 stretch-card transparent">
                 <div class="card card-light-blue">
                     <div class="card-body">
-                        <p class="mb-4">Number of Meetings</p>
-                        <p class="mb-2 fs-30">34040</p>
+                        <p class="mb-4">Total Jurnal</p>
+                        <p class="mb-2 fs-30">{{ $jurnal }} Jurnal</p>
                         <p>2.00% (30 days)</p>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
             <div class="col-md-6 stretch-card transparent">
                 <div class="card card-light-danger">
                     <div class="card-body">
-                        <p class="mb-4">Number of Clients</p>
+                        <p class="mb-4">Total Pembelian</p>
                         <p class="mb-2 fs-30">47033</p>
                         <p>0.22% (30 days)</p>
                     </div>

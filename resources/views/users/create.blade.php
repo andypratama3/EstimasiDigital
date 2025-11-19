@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'User')
+
 @section('content')
 
 <div class="content-wrapper">
@@ -8,16 +10,20 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                        Detail Buku Digital
+                        Tambah User
                     </h4>
 
+                    {!! Form::open(['route' => 'users.store', 'class' => 'forms-sample']) !!}
+
                     <div class="row">
-                        @include('buku_digitals.show_fields')
+                        @include('users.fields')
                     </div>
 
-                    <a class="btn btn-light" href="{{ route('bukuDigitals.index') }}">
-                        Kembali
-                    </a>
+                    <a href="{{ route('users.index') }}" class="btn btn-light">
+                        Cancel </a>
+
+                    {!! Form::submit('Submit', ['class' => 'btn btn-primary mr-2']) !!}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

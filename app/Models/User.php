@@ -2,40 +2,33 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Laravel\Sanctum\HasApiTokens;
-use Laravel\Jetstream\HasProfilePhoto;
-use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Jetstream\HasProfilePhoto;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens;
     use HasFactory;
     use HasProfilePhoto;
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
+    public $table = 'users';
+
+    public $fillable = [
         'name',
         'email',
+        'email_verified_at',
+        'is_active',
         'password',
+        'remember_token',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
@@ -43,21 +36,82 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
+        'name' => 'string',
+        'email' => 'string',
         'email_verified_at' => 'datetime',
+        'is_active' => 'boolean',
+        'password' => 'string',
+        'remember_token' => 'string',
     ];
 
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array<int, string>
-     */
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public static array $rules = [
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|string|max:255',
+        'email_verified_at' => 'nullable|datetime',
+        'is_active' => 'nullable|boolean',
+        'password' => 'nullable|string|min:8|max:255',
+        'remember_token' => 'nullable|string|max:100',
+        'created_at' => 'nullable',
+        'updated_at' => 'nullable',
+    ];
+
+    public function accessLogs(): HasMany
+    {
+        return $this->hasMany(\App\Models\AccessLog::class, 'user_id');
+    }
+
+    public function bahanPustakaDigitals(): HasMany
+    {
+        return $this->hasMany(\App\Models\BahanPustakaDigital::class, 'created_by');
+    }
+
+    public function bahanPustakaDigitalsUpdated(): HasMany
+    {
+        return $this->hasMany(\App\Models\BahanPustakaDigital::class, 'updated_by');
+    }
+
+    public function bukuDigitals(): HasMany
+    {
+        return $this->hasMany(\App\Models\BukuDigital::class, 'created_by');
+    }
+
+    public function bukuDigitalsUpdated(): HasMany
+    {
+        return $this->hasMany(\App\Models\BukuDigital::class, 'updated_by');
+    }
+
+    public function jurnalDigitals(): HasMany
+    {
+        return $this->hasMany(\App\Models\JurnalDigital::class, 'created_by');
+    }
+
+    public function jurnalDigitalsUpdated(): HasMany
+    {
+        return $this->hasMany(\App\Models\JurnalDigital::class, 'updated_by');
+    }
+
+    public function klipingDigitals(): HasMany
+    {
+        return $this->hasMany(\App\Models\KlipingDigital::class, 'created_by');
+    }
+
+    public function klipingDigitalsUpdated(): HasMany
+    {
+        return $this->hasMany(\App\Models\KlipingDigital::class, 'updated_by');
+    }
+
+    public function modificationHistories(): HasMany
+    {
+        return $this->hasMany(\App\Models\ModificationHistory::class, 'modified_by');
+    }
+
+    public function sessions(): HasMany
+    {
+        return $this->hasMany(\App\Models\Session::class, 'user_id');
+    }
 }
