@@ -32,4 +32,6 @@ class JurnalDigitalRepository extends BaseRepository
     {
         return JurnalDigital::class;
     }
+
+    
 }

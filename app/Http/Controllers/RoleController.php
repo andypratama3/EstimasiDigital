@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use Flash;
+use Illuminate\Http\Request;
+use App\Repositories\RoleRepository;
 use App\Http\Requests\CreateRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\AppBaseController;
-use App\Repositories\RoleRepository;
-use Illuminate\Http\Request;
-use Flash;
 
 class RoleController extends AppBaseController
 {
-    /** @var RoleRepository $roleRepository*/
+    /** @var RoleRepository */
     private $roleRepository;
 
     public function __construct(RoleRepository $roleRepo)
@@ -26,8 +28,7 @@ class RoleController extends AppBaseController
     {
         $roles = $this->roleRepository->paginate(10);
 
-        return view('roles.index')
-            ->with('roles', $roles);
+        return view('roles.index')->with('roles', $roles);
     }
 
     /**
@@ -35,7 +36,9 @@ class RoleController extends AppBaseController
      */
     public function create()
     {
-        return view('roles.create');
+        $permissions = Permission::all(); // kirim model, bukan pluck
+
+        return view('roles.create', compact('permissions'));
     }
 
     /**
@@ -43,11 +46,17 @@ class RoleController extends AppBaseController
      */
     public function store(CreateRoleRequest $request)
     {
-        $input = $request->all();
+        $input = $request->only(['name', 'guard_name']);
 
-        $role = $this->roleRepository->create($input);
+        // 1. Create role
+        $role = Role::create($input);
 
-        Flash::success('Role saved successfully.');
+        // 2. Attach permissions jika ada
+        if ($request->has('permissions')) {
+            $role->permissions()->sync($request->permissions);
+        }
+
+        Flash::success('Role berhasil disimpan.');
 
         return redirect(route('roles.index'));
     }
@@ -60,8 +69,7 @@ class RoleController extends AppBaseController
         $role = $this->roleRepository->find($id);
 
         if (empty($role)) {
-            Flash::error('Role not found');
-
+            Flash::error('Role tidak ditemukan');
             return redirect(route('roles.index'));
         }
 
@@ -73,15 +81,16 @@ class RoleController extends AppBaseController
      */
     public function edit($id)
     {
-        $role = $this->roleRepository->find($id);
+        $role = Role::find($id);
 
-        if (empty($role)) {
-            Flash::error('Role not found');
-
+        if (!$role) {
+            Flash::error('Role tidak ditemukan');
             return redirect(route('roles.index'));
         }
 
-        return view('roles.edit')->with('role', $role);
+        $permissions = Permission::all();
+
+        return view('roles.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -89,39 +98,37 @@ class RoleController extends AppBaseController
      */
     public function update($id, UpdateRoleRequest $request)
     {
-        $role = $this->roleRepository->find($id);
+        $role = Role::find($id);
 
-        if (empty($role)) {
-            Flash::error('Role not found');
-
+        if (!$role) {
+            Flash::error('Role tidak ditemukan');
             return redirect(route('roles.index'));
         }
 
-        $role = $this->roleRepository->update($request->all(), $id);
+        // Update name & guard_name
+        $role->update($request->only(['name', 'guard_name']));
 
-        Flash::success('Role updated successfully.');
+        // Sync permission jika ada
+        $role->permissions()->sync($request->permissions ?? []);
 
-        return redirect(route('roles.index'));
+        return redirect()->route('roles.index')->with('success',' Role berhasil diupdate');
     }
 
     /**
      * Remove the specified Role from storage.
-     *
-     * @throws \Exception
      */
     public function destroy($id)
     {
-        $role = $this->roleRepository->find($id);
+        $role = Role::find($id);
 
-        if (empty($role)) {
-            Flash::error('Role not found');
-
+        if (!$role) {
+            Flash::error('Role tidak ditemukan');
             return redirect(route('roles.index'));
         }
 
-        $this->roleRepository->delete($id);
+        $role->delete();
 
-        Flash::success('Role deleted successfully.');
+        Flash::success('Role berhasil dihapus.');
 
         return redirect(route('roles.index'));
     }

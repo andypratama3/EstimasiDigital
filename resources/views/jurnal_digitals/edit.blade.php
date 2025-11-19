@@ -10,18 +10,20 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                                                    Edit Jurnal Digital
-                                            </h4>
+                        Edit Jurnal Digital
+                    </h4>
 
-                    {!! Form::model($jurnalDigital, ['route' => ['jurnalDigitals.update', $jurnalDigital->id], 'method' => 'patch', 'class' => 'forms-sample']) !!}
+                    {!! Form::model($jurnalDigital, ['route' => ['jurnalDigitals.update', $jurnalDigital->id], 'method'
+                    => 'patch', 'class' => 'forms-sample', 'files' => true]) !!}
 
                     <div class="row">
                         @include('jurnal_digitals.fields')
                     </div>
 
-                    {!! Form::submit('Submit', ['class' => 'btn btn-primary mr-2']) !!}
                     <a href="{{ route('jurnalDigitals.index') }}" class="btn btn-light">
-                         Cancel                     </a>
+                        Cancel
+                    </a>
+                    {!! Form::submit('Submit', ['class' => 'btn btn-primary mr-2']) !!}
 
                     {!! Form::close() !!}
                 </div>

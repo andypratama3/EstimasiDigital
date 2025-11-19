@@ -1,58 +1,90 @@
-<div class="card-body p-0">
+<div class="p-0 card-body">
     <div class="table-responsive">
-        <table class="table" id="buku-digitals-table">
+        <table class="table table-striped" id="buku-digitals-table">
             <thead>
             <tr>
+                <th>#</th>
                 <th>Judul</th>
                 <th>Pengarang</th>
                 <th>Penerbit</th>
                 <th>Tahun Terbit</th>
-                <th>Isbn</th>
+                <th>ISBN</th>
                 <th>Deskripsi</th>
                 <th>Kategori</th>
-                <th>Is Protected</th>
-                <th>Created By</th>
-                <th>Updated By</th>
-                <th>Is Deleted</th>
+                <th>Proteksi</th>
+                <th>Dibuat Oleh</th>
+                <th>Diubah Oleh</th>
+                <th>Status</th>
                 <th colspan="3">Action</th>
             </tr>
             </thead>
+
             <tbody>
-            @foreach($bukuDigitals as $bukuDigital)
+            @foreach($bukuDigitals as $index => $bukuDigital)
                 <tr>
-                    <td>{{ $bukuDigital->judul }}</td>
-                    <td>{{ $bukuDigital->pengarang }}</td>
-                    <td>{{ $bukuDigital->penerbit }}</td>
+
+                    {{-- NOMOR URUT --}}
+                    <td>{{ (($bukuDigitals->currentPage() - 1) * $bukuDigitals->perPage()) + ($loop->index + 1) }}</td>
+
+                    {{-- KOLOM --}}
+                    <td>{{ Str::limit($bukuDigital->judul, 25, ' ...') }}</td>
+                    <td>{{ Str::limit($bukuDigital->pengarang, 20, ' ...') }}</td>
+                    <td>{{ Str::limit($bukuDigital->penerbit, 20, ' ...') }}</td>
                     <td>{{ $bukuDigital->tahun_terbit }}</td>
                     <td>{{ $bukuDigital->isbn }}</td>
-                    <td>{{ $bukuDigital->deskripsi }}</td>
-                    <td>{{ $bukuDigital->kategori }}</td>
-                    <td>{{ $bukuDigital->is_protected }}</td>
-                    <td>{{ $bukuDigital->created_by }}</td>
-                    <td>{{ $bukuDigital->updated_by }}</td>
-                    <td>{{ $bukuDigital->is_deleted }}</td>
-                    <td  style="width: 120px">
-                        {!! Form::open(['route' => ['bukuDigitals.destroy', $bukuDigital->id], 'method' => 'delete']) !!}
+                    <td>{{ Str::limit($bukuDigital->deskripsi, 25, ' ...') }}</td>
+                    <td>{{ Str::limit($bukuDigital->kategori, 20, ' ...') }}</td>
+
+                    {{-- PROTEKSI --}}
+                    <td>
+                        <span class="badge {{ $bukuDigital->is_protected ? 'bg-success' : 'bg-danger' }}">
+                            {{ $bukuDigital->is_protected ? 'Ya' : 'Tidak' }}
+                        </span>
+                    </td>
+
+                    {{-- USER --}}
+                    <td>{{ $bukuDigital->createdBy->name ?? '-' }}</td>
+                    <td>{{ $bukuDigital->updatedBy->name ?? '-' }}</td>
+
+                    {{-- STATUS --}}
+                    <td>
+                        @if($bukuDigital->is_deleted)
+                            <span class="text-white badge bg-danger">Dihapus</span>
+                        @else
+                            <span class="text-white badge bg-success">Aktif</span>
+                        @endif
+                    </td>
+
+                    {{-- ACTION BUTTONS --}}
+                    <td style="width: 120px">
                         <div class='btn-group'>
-                            <a href="{{ route('bukuDigitals.show', [$bukuDigital->id]) }}"
-                               class='btn btn-default btn-xs'>
+
+                            <a href="{{ route('bukuDigitals.show', $bukuDigital->id) }}" class='btn btn-sm'>
                                 <i class="far fa-eye"></i>
                             </a>
-                            <a href="{{ route('bukuDigitals.edit', [$bukuDigital->id]) }}"
-                               class='btn btn-default btn-xs'>
+
+                            <a href="{{ route('bukuDigitals.edit', $bukuDigital->id) }}" class='btn btn-primary btn-sm'>
                                 <i class="far fa-edit"></i>
                             </a>
-                            {!! Form::button('<i class="far fa-trash-alt"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
+
+                            <button type="button"
+                                class="btn btn-danger btn-sm btn-delete"
+                                data-id="{{ $bukuDigital->id }}"
+                                data-url="{{ route('bukuDigitals.destroy', $bukuDigital->id) }}">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+
                         </div>
-                        {!! Form::close() !!}
                     </td>
+
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
 
-    <div class="card-footer clearfix">
+    {{-- PAGINATION --}}
+    <div class="clearfix card-footer">
         <div class="float-right">
             @include('adminlte-templates::common.paginate', ['records' => $bukuDigitals])
         </div>

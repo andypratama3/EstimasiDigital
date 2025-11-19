@@ -45,12 +45,23 @@ class JurnalDigitalController extends AppBaseController
     {
         $input = $request->all();
 
+        // Set user IDs
+        $input['created_by'] = auth()->id();
+        $input['updated_by'] = auth()->id();
+
+        // Create first
         $jurnalDigital = $this->jurnalDigitalRepository->create($input);
 
-        Flash::success('Jurnal Digital saved successfully.');
+        // Upload file AFTER model exists
+        if ($request->hasFile('jurnal_file')) {
+            $jurnalDigital->addMediaFromRequest('jurnal_file')
+                ->toMediaCollection('jurnal_file');
+        }
 
+        Flash::success('Jurnal Digital saved successfully.');
         return redirect(route('jurnalDigitals.index'));
     }
+
 
     /**
      * Display the specified JurnalDigital.
@@ -93,16 +104,26 @@ class JurnalDigitalController extends AppBaseController
 
         if (empty($jurnalDigital)) {
             Flash::error('Jurnal Digital not found');
-
             return redirect(route('jurnalDigitals.index'));
         }
 
-        $jurnalDigital = $this->jurnalDigitalRepository->update($request->all(), $id);
+        $input = $request->all();
+        $input['updated_by'] = auth()->id();
+
+        // Update data
+        $jurnalDigital->update($input);
+
+        // Replace file
+        if ($request->hasFile('jurnal_file')) {
+            $jurnalDigital->clearMediaCollection('jurnal_file');
+            $jurnalDigital->addMediaFromRequest('jurnal_file')
+                ->toMediaCollection('jurnal_file');
+        }
 
         Flash::success('Jurnal Digital updated successfully.');
-
         return redirect(route('jurnalDigitals.index'));
     }
+
 
     /**
      * Remove the specified JurnalDigital from storage.

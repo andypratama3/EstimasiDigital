@@ -16,14 +16,9 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
 
-    return view('dashboard.index');
-    // return redirect()->route('login');
+    // return view('dashboard.index');
+    return redirect()->route('login');
 });
-Route::get('/1', function () {
-    return view('create');
-});
-
-
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', DashboardController::class)->name('dashboard.index');

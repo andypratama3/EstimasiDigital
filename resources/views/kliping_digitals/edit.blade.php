@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Edit Kliping')
+
 @section('content')
 
 <div class="content-wrapper">
@@ -8,10 +10,11 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                                                    Edit Kliping Digital
-                                            </h4>
+                        Edit Kliping Digital
+                    </h4>
 
-                    {!! Form::model($klipingDigital, ['route' => ['klipingDigitals.update', $klipingDigital->id], 'method' => 'patch', 'class' => 'forms-sample']) !!}
+                    {!! Form::model($klipingDigital, ['route' => ['klipingDigitals.update', $klipingDigital->id],
+                    'method' => 'patch', 'class' => 'forms-sample']) !!}
 
                     <div class="row">
                         @include('kliping_digitals.fields')
@@ -19,7 +22,7 @@
 
                     {!! Form::submit('Submit', ['class' => 'btn btn-primary mr-2']) !!}
                     <a href="{{ route('klipingDigitals.index') }}" class="btn btn-light">
-                         Cancel                     </a>
+                        Cancel </a>
 
                     {!! Form::close() !!}
                 </div>

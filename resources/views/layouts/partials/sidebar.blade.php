@@ -76,8 +76,8 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Pengguna </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('roles.index') }}"> Role </a></li>
               </ul>
             </div>
           </li>

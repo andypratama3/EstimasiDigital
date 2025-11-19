@@ -10,8 +10,8 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">
-                                                    Tambah Role
-                                            </h4>
+                        Tambah Role
+                    </h4>
 
                     {!! Form::open(['route' => 'roles.store', 'class' => 'forms-sample']) !!}
 
@@ -19,10 +19,10 @@
                         @include('roles.fields')
                     </div>
 
-                    {!! Form::submit('Submit', ['class' => 'btn btn-primary mr-2']) !!}
                     <a href="{{ route('roles.index') }}" class="btn btn-light">
-                         Cancel                     </a>
+                        Cancel </a>
 
+                    {!! Form::submit('Submit', ['class' => 'btn btn-primary mr-2']) !!}
                     {!! Form::close() !!}
                 </div>
             </div>

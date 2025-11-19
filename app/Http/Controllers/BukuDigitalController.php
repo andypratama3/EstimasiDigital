@@ -11,7 +11,7 @@ use Flash;
 
 class BukuDigitalController extends AppBaseController
 {
-    /** @var BukuDigitalRepository $bukuDigitalRepository*/
+    /** @var BukuDigitalRepository $bukuDigitalRepository */
     private $bukuDigitalRepository;
 
     public function __construct(BukuDigitalRepository $bukuDigitalRepo)
@@ -45,10 +45,20 @@ class BukuDigitalController extends AppBaseController
     {
         $input = $request->all();
 
+        // Tambahkan user ID
+        $input['created_by'] = auth()->id();
+        $input['updated_by'] = auth()->id();
+
+        // Buat dulu modelnya
         $bukuDigital = $this->bukuDigitalRepository->create($input);
 
-        Flash::success('Buku Digital saved successfully.');
+        // Upload file setelah model dibuat
+        if ($request->hasFile('buku_file')) {
+            $bukuDigital->addMediaFromRequest('buku_file')
+                ->toMediaCollection('buku_file');
+        }
 
+        Flash::success('Buku Digital saved successfully.');
         return redirect(route('bukuDigitals.index'));
     }
 
@@ -61,7 +71,6 @@ class BukuDigitalController extends AppBaseController
 
         if (empty($bukuDigital)) {
             Flash::error('Buku Digital not found');
-
             return redirect(route('bukuDigitals.index'));
         }
 
@@ -77,7 +86,6 @@ class BukuDigitalController extends AppBaseController
 
         if (empty($bukuDigital)) {
             Flash::error('Buku Digital not found');
-
             return redirect(route('bukuDigitals.index'));
         }
 
@@ -93,21 +101,28 @@ class BukuDigitalController extends AppBaseController
 
         if (empty($bukuDigital)) {
             Flash::error('Buku Digital not found');
-
             return redirect(route('bukuDigitals.index'));
         }
 
-        $bukuDigital = $this->bukuDigitalRepository->update($request->all(), $id);
+        $input = $request->all();
+        $input['updated_by'] = auth()->id();
+
+        // update data
+        $bukuDigital->update($input);
+
+        // gantikan file
+        if ($request->hasFile('buku_file')) {
+            $bukuDigital->clearMediaCollection('buku_file');
+            $bukuDigital->addMediaFromRequest('buku_file')
+                ->toMediaCollection('buku_file');
+        }
 
         Flash::success('Buku Digital updated successfully.');
-
         return redirect(route('bukuDigitals.index'));
     }
 
     /**
      * Remove the specified BukuDigital from storage.
-     *
-     * @throws \Exception
      */
     public function destroy($id)
     {
@@ -115,14 +130,15 @@ class BukuDigitalController extends AppBaseController
 
         if (empty($bukuDigital)) {
             Flash::error('Buku Digital not found');
-
             return redirect(route('bukuDigitals.index'));
         }
+
+        // optional: hapus file
+        $bukuDigital->clearMediaCollection('buku_file');
 
         $this->bukuDigitalRepository->delete($id);
 
         Flash::success('Buku Digital deleted successfully.');
-
         return redirect(route('bukuDigitals.index'));
     }
 }
