@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Home\BukuDigitalController as HomeBukuDigitalController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +17,12 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
-Route::get('/', function () {
-
-    // return view('dashboard.index');
-    return redirect()->route('login');
+Route::group(['prefix' => '/'], function () {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/buku', [HomeBukuDigitalController::class, 'index'])->name('buku.index');
+    Route::get('/buku/{id}', [HomeBukuDigitalController::class, 'show'])->name('buku.show');
 });
+
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', DashboardController::class)->name('dashboard.index');
@@ -30,4 +34,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('users', App\Http\Controllers\UserController::class);
 
+    Route::group(['prefix' => 'profile'], function () {
+        Route::get('/', [App\Http\Controllers\UserProfileController::class, 'index'])->name('profile.index');
+        Route::put('/profile/update', [App\Http\Controllers\UserProfileController::class, 'update'])->name('profile.update.custom');
+
+    });
 });

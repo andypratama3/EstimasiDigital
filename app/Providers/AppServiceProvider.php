@@ -23,8 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
 
-        // Login
-
         Gate::after(function ($user, $ability) {
             return $user->hasRole('superadmin');
         });

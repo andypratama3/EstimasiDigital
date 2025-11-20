@@ -63,6 +63,9 @@ class BukuDigital extends Model implements HasMedia
     {
         $this->addMediaCollection('buku_file')
             ->singleFile();
+            
+        $this->addMediaCollection('cover')
+            ->singleFile(); // cover hanya satu
     }
 
     /**
@@ -98,6 +101,7 @@ class BukuDigital extends Model implements HasMedia
         $media = $this->getFirstMedia('buku_file');
         return $media ? $media->file_name : null;
     }
+
 
     public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

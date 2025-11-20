@@ -16,18 +16,41 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   {{-- <script src="{{ asset('assets/js/dashboard.js')}}"></script> --}}
-  <script src="{{ asset('assets/js/Chart.roundedBarCharts.js')}}"></script>
-    <script src="https://kit.fontawesome.com/2feee0b69e.js" crossorigin="anonymous"></script>
+<script src="{{ asset('assets/js/Chart.roundedBarCharts.js')}}"></script>
+<script src="https://kit.fontawesome.com/2feee0b69e.js" crossorigin="anonymous"></script>
 
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <script>
+<script>
     $(document).ready(function() {
+        // Logout
+        $('.navbar').on('click','.swal-logout',function (e) {
+            console.log("click");
+            slug = e.target.dataset.id;
+            Swal.fire({
+                    title: 'Yakin ingin keluar?',
+                    text: 'Anda akan dialihkan ke beranda.',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Ya, keluar',
+                    cancelButtonText: 'Tidak',
+                    dangerMode: true,
+                    reverseButtons: true
+                })
+                .then((willLogout) => {
+                    if (willLogout.isConfirmed) {
+                        $(`#logout-form`).submit();
+                    } else {
+                        // Do Nothing
+                    }
+                });
+        });
+
         $('.table').on('click', '.btn-delete', function (e) {
             e.preventDefault();
             let url = $(this).data('url');
             let id = $(this).data('id');
-            
+
             Swal.fire({
                 title: 'Apakah anda yakin?',
                 text: "Data akan dihapus!",

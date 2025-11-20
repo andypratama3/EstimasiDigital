@@ -75,6 +75,54 @@
     </div>
 </div>
 
+<!-- Cover Buku Field -->
+<div class="col-md-12">
+    <div class="form-group">
+        {!! Form::label('cover', 'Cover Buku') !!}
+        <small class="mb-2 text-muted d-block">
+            <i class="fas fa-info-circle"></i> Format: JPG, PNG, JPEG (Max: 5MB)
+        </small>
+
+        <div class="input-group">
+            {!! Form::file('cover', ['class' => 'form-control', 'accept' => 'image/*', 'id' => 'cover_input']) !!}
+            <span class="input-group-text" id="cover-name">Pilih Gambar</span>
+        </div>
+
+        {{-- PREVIEW COVER SAAT EDIT --}}
+        @if(isset($bukuDigital))
+            @php
+                $cover = $bukuDigital->getFirstMedia('cover');
+            @endphp
+
+            @if($cover)
+                <div class="gap-3 p-3 mt-3 border rounded d-flex align-items-center">
+                    <img src="{{ $cover->getFullUrl() }}"
+                         alt="Cover Buku"
+                         class="rounded shadow"
+                         style="width: 140px; height: 180px; object-fit: cover;">
+
+                    <div>
+                        <strong>Cover saat ini:</strong>
+                        <div class="mt-2">
+                            <a href="{{ $cover->getFullUrl() }}" target="_blank" class="btn btn-success btn-sm">
+                                <i class="fa fa-eye"></i> Lihat
+                            </a>
+
+                            <button type="button"
+                                    class="btn btn-danger btn-sm ms-2"
+                                    id="delete-cover"
+                                    data-id="{{ $cover->id }}">
+                                <i class="fa fa-trash"></i> Hapus
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        @endif
+    </div>
+</div>
+
+
 <!-- File Buku Field -->
 <div class="col-md-12">
     <div class="form-group">
@@ -289,6 +337,13 @@ $(document).ready(function () {
         const fileName = this.files[0] ? this.files[0].name : 'Pilih File';
         $('#file-name').text(fileName);
     });
+
+    // Update label file cover
+    $('#cover_input').on('change', function() {
+        const fileName = this.files[0] ? this.files[0].name : 'Pilih Gambar';
+        $('#cover-name').text(fileName);
+    });
+
 
     // === Hapus File Media (AJAX) ==
 });

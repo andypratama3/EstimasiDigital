@@ -65,21 +65,6 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\AccessLog::class, 'user_id');
     }
 
-    public function bahanPustakaDigitals(): HasMany
-    {
-        return $this->hasMany(\App\Models\BahanPustakaDigital::class, 'created_by');
-    }
-
-    public function bahanPustakaDigitalsUpdated(): HasMany
-    {
-        return $this->hasMany(\App\Models\BahanPustakaDigital::class, 'updated_by');
-    }
-
-    public function bukuDigitals(): HasMany
-    {
-        return $this->hasMany(\App\Models\BukuDigital::class, 'created_by');
-    }
-
     public function bukuDigitalsUpdated(): HasMany
     {
         return $this->hasMany(\App\Models\BukuDigital::class, 'updated_by');
