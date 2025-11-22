@@ -8,6 +8,7 @@
   <title>Estimasi Digital</title>
   <link rel="icon" href="favicon.ico">
   <link href="{{ asset('assets_home/style.css') }}" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
   @stack('home_css')
 </head>

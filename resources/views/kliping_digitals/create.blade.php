@@ -11,7 +11,7 @@
                         Tambah Kliping Digital
                     </h4>
                     @include('adminlte-templates::common.errors')
-                    {!! Form::open(['route' => 'klipingDigitals.store', 'class' => 'forms-sample']) !!}
+                    {!! Form::open(['route' => 'klipingDigitals.store', 'class' => 'forms-sample', 'files' => true]) !!}
 
                     <div class="row">
                         @include('kliping_digitals.fields')

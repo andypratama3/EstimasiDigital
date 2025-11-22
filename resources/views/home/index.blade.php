@@ -24,11 +24,6 @@
 
             <div class="tc tf yo zf mb">
               <a href="#!" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
-
-              <span class="tc sf">
-                <a href="#!" class="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>
-                <span class="inline-block">For any question or concern</span>
-              </span>
             </div>
           </div>
         </div>
@@ -76,45 +71,6 @@
       </div>
     </section>
     <!-- ===== Small Features End ===== -->
-
-    <!-- ===== About Start ===== -->
-    <section class="ji gp uq 2xl:ud-py-35 pg">
-      <div class="bb ze ki xn wq">
-        <div class="tc wf gg qq">
-          <!-- About Images -->
-          <div class="animate_left xc gn gg jn/2 i">
-            <div>
-              <img src="{{ asset('assets_home/images/shape-05.svg')}}" alt="Shape" class="h -ud-left-5 x" />
-              <img src="{{ asset('assets_home/images/about-01.png')}}" alt="About" class="ib" />
-              <img src="{{ asset('assets_home/images/about-02.png')}}" alt="About" />
-            </div>
-            <div>
-              <img src="{{ asset('assets_home/images/shape-06.svg')}}" alt="Shape" />
-              <img src="{{ asset('assets_home/images/about-03.png')}}" alt="About" class="ob gb" />
-              <img src="{{ asset('assets_home/images/shape-07.svg')}}" alt="Shape" class="bb" />
-            </div>
-          </div>
-
-          <!-- About Content -->
-          <div class="animate_right jn/2">
-            <h4 class="ek yj mk gb">Why Choose Us</h4>
-            <h2 class="fk vj zp pr kk wm qb">We Make Our customers happy by giving Best services.</h2>
-            <p class="uo">It is a long established fact that a reader will be distracted by the readable content of a
-              page when looking at its layout. The point of using Lorem Ipsum.</p>
-
-            <a href="https://www.youtube.com/watch?v=xcJtL7QggTI" data-fslightbox class="vc wf hg mb">
-              <span class="tc wf xf be dd rg i gh ua">
-                <span class="nf h vc yc vd rg gh qk -ud-z-1"></span>
-                <img src="{{ asset('assets_home/images/icon-play.svg')}}" alt="Play" />
-              </span>
-              <span class="kk">SEE HOW WE WORK</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== About End ===== -->
-
     <!-- ===== Team Start ===== -->
     <section class="i pg ji gp uq">
       <!-- Bg Shapes -->
@@ -329,27 +285,6 @@
             <h4 class="ek zj kk wm nb _b">Kliping Digital</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
           </div>
-
-          <!-- Service Item -->
-          <div class="animate_top sg oi pi zq ml il am cn _m">
-            <img src="{{ asset('assets_home/images/icon-07.svg')}}" alt="Icon" />
-            <h4 class="ek zj kk wm nb _b">Speed Optimized</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
-          </div>
-
-          <!-- Service Item -->
-          <div class="animate_top sg oi pi zq ml il am cn _m">
-            <img src="{{ asset('assets_home/images/icon-05.svg')}}" alt="Icon" />
-            <h4 class="ek zj kk wm nb _b">Fully Customizable</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
-          </div>
-
-          <!-- Service Item -->
-          <div class="animate_top sg oi pi zq ml il am cn _m">
-            <img src="{{ asset('assets_home/images/icon-06.svg')}}" alt="Icon" />
-            <h4 class="ek zj kk wm nb _b">Regular Updates</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.</p>
-          </div>
         </div>
       </div>
     </section>
@@ -364,17 +299,6 @@
       <img src="{{ asset('assets_home/images/shape-12.svg')}}" alt="Shape" class="h p s" />
       <img src="{{ asset('assets_home/images/shape-13.svg')}}" alt="Shape" class="h r q" />
 
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `We Offer Great Affordable Premium Prices.`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
       <!-- Section Title End -->
     </section>
     <!-- ===== Pricing Table End ===== -->
@@ -497,83 +421,6 @@
       </div>
     </section>
     <!-- ===== Projects End ===== -->
-
-    <!-- ===== Testimonials Start ===== -->
-    <section class="hj rp hr">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Client’s Testimonials`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="bb ze ki xn ar">
-        <div class="animate_top jb cq">
-          <!-- Slider main container -->
-          <div class="swiper testimonial-01">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide">
-                <div class="i hh rm sg vk xm bi qj">
-                  <!-- Border Shape -->
-                  <span class="rc je md/2 gh xg h q r"></span>
-                  <span class="rc je md/2 mh yg h q p"></span>
-
-                  <div class="tc sf rn tn un zf dp">
-                    <img class="bf" src="{{ asset('assets_home/images/testimonial.png"')}} alt="User" />
-
-                    <div>
-                      <img src="{{ asset('assets_home/images/icon-quote.svg')}}" alt="Quote" />
-                      <p class="ek ik xj _p kc fb">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In dolor diam, feugiat quis enim sed,
-                        ullamcorper semper ligula. Mauris consequat justo volutpat.
-                      </p>
-
-                      <div class="tc yf vf">
-                        <div>
-                          <span class="rc ek xj kk wm zb">Devid Smith</span>
-                          <span class="rc">Founter @democompany</span>
-                        </div>
-
-                        <img class="rk" src="{{ asset('assets_home/images/brand-light-02')}}.svg" alt="Brand" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- If we need navigation -->
-            <div class="tc wf xf fg jb">
-              <div class="swiper-button-prev c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
-                <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3.52366 7.83336L7.99366 12.3034L6.81533 13.4817L0.333663 7.00002L6.81533 0.518357L7.99366 1.69669L3.52366 6.16669L13.667 6.16669L13.667 7.83336L3.52366 7.83336Z"
-                    fill="" />
-                </svg>
-              </div>
-              <div class="swiper-button-next c tc wf xf ie ld rg _g dh pf ml vr hh rm tl zm rl ym">
-                <svg class="th lm" width="14" height="14" viewBox="0 0 14 14" fill="none"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M10.4763 6.16664L6.00634 1.69664L7.18467 0.518311L13.6663 6.99998L7.18467 13.4816L6.00634 12.3033L10.4763 7.83331H0.333008V6.16664H10.4763Z"
-                    fill="" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Testimonials End ===== -->
-
     <!-- ===== Counter Start ===== -->
     <section class="i pg qh rm ji hp">
       <img src="{{ asset('assets_home/images/shape-11.svg')}}" alt="Shape" class="of h ga ha ke" />
@@ -584,174 +431,21 @@
       <div class="bb ze i va ki xn br">
         <div class="tc uf sn tn xf un gg">
           <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">785</h2>
-            <p class="ek bk aq">Global Brands</p>
+            <h2 class="gk vj zp or kk wm hc">{{ $countbuku }}</h2>
+            <p class="ek bk aq">Buku Digital</p>
           </div>
           <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">533</h2>
-            <p class="ek bk aq">Happy Clients</p>
+            <h2 class="gk vj zp or kk wm hc">{{ $countkliping }}</h2>
+            <p class="ek bk aq">Kliping Digital</p>
           </div>
           <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">865</h2>
-            <p class="ek bk aq">Winning Award</p>
-          </div>
-          <div class="animate_top me/5 ln rj">
-            <h2 class="gk vj zp or kk wm hc">346</h2>
-            <p class="ek bk aq">Happy Clients</p>
+            <h2 class="gk vj zp or kk wm hc">{{ $countjurnal }}</h2>
+            <p class="ek bk aq">Jurnal</p>
           </div>
         </div>
       </div>
     </section>
     <!-- ===== Counter End ===== -->
-
-    <!-- ===== Clients Start ===== -->
-    <section class="pj vp mr">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Trusted by Global Brands`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="bb ze ah ch pm hj xp ki xn 2xl:ud-px-49 bc">
-        <div class="wc rf qn zf cp kq xf wf">
-          <a href="#!" class="rc animate_top">
-            <img class="th wl ml il zl om" src="{{ asset('assets_home/images/brand-light-01')}}.svg" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{{ asset('assets_home/images/brand-dark-01')}}.svg" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{{ asset('assets_home/images/brand-light-02')}}.svg" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{{ asset('assets_home/images/brand-dark-02')}}.svg" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{{ asset('assets_home/images/brand-light-03')}}.svg" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{{ asset('assets_home/images/brand-dark-03')}}.svg" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{{ asset('assets_home/images/brand-light-04')}}.svg" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{{ asset('assets_home/images/brand-dark-04')}}.svg" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{{ asset('assets_home/images/brand-light-05')}}.svg" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{{ asset('assets_home/images/brand-dark-05')}}.svg" alt="Clients" />
-          </a>
-          <a href="#!" class="rc animate_top">
-            <img class="tk ml il zl om" src="{{ asset('assets_home/images/brand-light-06')}}.svg" alt="Clients" />
-            <img class="xc sk ml il zl nm" src="{{ asset('assets_home/images/brand-dark-06')}}.svg" alt="Clients" />
-          </a>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Clients End ===== -->
-
-    <!-- ===== Blog Start ===== -->
-    <section class="ji gp uq">
-      <!-- Section Title Start -->
-      <div
-        x-data="{ sectionTitle: `Latest Blogs & News`, sectionTitleText: `It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.`}">
-        <div class="animate_top bb ze rj ki xn vq">
-          <h2 x-text="sectionTitle" class="fk vj pr kk wm on/5 gq/2 bb _b">
-          </h2>
-          <p class="bb on/5 wo/5 hq" x-text="sectionTitleText"></p>
-        </div>
-
-
-      </div>
-      <!-- Section Title End -->
-
-      <div class="bb ye ki xn vq jb jo">
-        <div class="wc qf pn xo zf iq">
-          <!-- Blog Item -->
-          <div class="animate_top sg vk rm xm">
-            <div class="c rc i z-1 pg">
-              <img class="w-full" src="{{ asset('assets_home/images/blog-01.png')}}" alt="Blog" />
-
-              <div class="z-10 im h r s df vd yc wg tc wf xf al hh/20 nl il">
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-              </div>
-            </div>
-
-            <div class="yh">
-              <div class="tc uf wf ag jq">
-                <div class="tc wf ag">
-                  <img src="{{ asset('assets_home/images/icon-man.svg')}}" alt="User" />
-                  <p>Musharof Chy</p>
-                </div>
-                <div class="tc wf ag">
-                  <img src="{{ asset('assets_home/images/icon-calender.svg')}}" alt="Calender" />
-                  <p>25 Dec, 2025</p>
-                </div>
-              </div>
-              <h4 class="ek tj ml il kk wm xl eq lb">
-                <a href="blog-single.html">Free advertising for your online business</a>
-              </h4>
-            </div>
-          </div>
-
-          <!-- Blog Item -->
-          <div class="animate_top sg vk rm xm">
-            <div class="c rc i z-1 pg">
-              <img class="w-full" src="{{ asset('assets_home/images/blog-02.png')}}" alt="Blog" />
-
-              <div class="z-10 im h r s df vd yc wg tc wf xf al hh/20 nl il">
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-              </div>
-            </div>
-
-            <div class="yh">
-              <div class="tc uf wf ag jq">
-                <div class="tc wf ag">
-                  <img src="{{ asset('assets_home/images/icon-man.svg')}}" alt="User" />
-                  <p>Musharof Chy</p>
-                </div>
-                <div class="tc wf ag">
-                  <img src="{{ asset('assets_home/images/icon-calender.svg')}}" alt="Calender" />
-                  <p>25 Dec, 2025</p>
-                </div>
-              </div>
-              <h4 class="ek tj ml il kk wm xl eq lb">
-                <a href="blog-single.html">9 simple ways to improve your design skills</a>
-              </h4>
-            </div>
-          </div>
-
-          <!-- Blog Item -->
-          <div class="animate_top sg vk rm xm">
-            <div class="c rc i z-1 pg">
-              <img class="w-full" src="{{ asset('assets_home/images/blog-03.png')}}" alt="Blog" />
-
-              <div class="z-10 im h r s df vd yc wg tc wf xf al hh/20 nl il">
-                <a href="./blog-single.html" class="vc ek rg lk gh sl ml il gi hi">Read More</a>
-              </div>
-            </div>
-
-            <div class="yh">
-              <div class="tc uf wf ag jq">
-                <div class="tc wf ag">
-                  <img src="{{ asset('assets_home/images/icon-man.svg')}}" alt="User" />
-                  <p>Musharof Chy</p>
-                </div>
-                <div class="tc wf ag">
-                  <img src="{{ asset('assets_home/images/icon-calender.svg')}}" alt="Calender" />
-                  <p>25 Dec, 2025</p>
-                </div>
-              </div>
-              <h4 class="ek tj ml il kk wm xl eq lb">
-                <a href="blog-single.html">Tips to quickly improve your coding speed.</a>
-              </h4>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- ===== Blog End ===== -->
-
     <!-- ===== Contact Start ===== -->
     <section id="support" class="i pg fh rm ji gp uq">
       <!-- Bg Shapes -->

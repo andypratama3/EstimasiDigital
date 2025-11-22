@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use Spatie\MediaLibrary\HasMedia;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class KlipingDigital extends Model
+class KlipingDigital extends Model implements HasMedia
 {
-    use SoftDeletes;
+    use SoftDeletes, InteractsWithMedia;
 
     public $table = 'kliping_digital';
 
@@ -54,6 +56,13 @@ class KlipingDigital extends Model
         'created_at' => 'nullable',
         'updated_at' => 'nullable'
     ];
+
+     public function registerMediaCollections(): void
+    {
+
+        $this->addMediaCollection('cover')
+            ->singleFile();
+    }
 
     public function createdBy(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {

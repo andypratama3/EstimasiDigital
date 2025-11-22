@@ -8,24 +8,18 @@
           <div class="ro">
             <div
               class="animate_top rounded-md shadow-solid-13 bg-white dark:bg-blacksection border border-stroke dark:border-strokedark p-7.5 md:p-10">
-              <img src="{{ $buku->getFirstMediaUrl('cover') ?: asset('assets_home/images/default-cover.jpg') }}" alt="Blog" />
+              <img src="{{ $kliping->getFirstMediaUrl('cover') ?: asset('assets_home/images/default-cover.jpg') }}" alt="Blog" />
 
-              <h2 class="ek vj 2xl:ud-text-title-lg kk wm nb gb">{{ $buku->judul }}</h2>
+              <h2 class="ek vj 2xl:ud-text-title-lg kk wm nb gb">{{ $kliping->judul }}</h2>
 
               <ul class="tc uf cg 2xl:ud-gap-15 fb">
-                <li><span class="rc kk wm">Author: </span> {{ $buku->createdBy->name ?? '-' }}</li>
-                <li><span class="rc kk wm">Published On: </span> {{ $buku->created_at->format('M d, Y') }}</li>
-                <li><span class="rc kk wm">Category: </span> {{ $buku->kategori ?? '-' }}</li>
-                <li><span class="rc kk wm">Status : </span> {{ $buku->is_protected ? 'Dilindungin' : '' }}</li>
+                <li><span class="rc kk wm">Author: </span> {{ $kliping->createdBy->name ?? '-' }}</li>
+                <li><span class="rc kk wm">Published On: </span> {{ $kliping->created_at->format('M d, Y') }}</li>
+                <li><span class="rc kk wm">Category: </span> {{ $kliping->kategori ?? '-' }}</li>
+                <li><span class="rc kk wm">Status : </span> {{ $kliping->is_protected ? 'Dilindungin' : '' }}</li>
               </ul>
               <p>
-                {!! $buku->deskripsi !!}
-              </p>
-
-              <h2 class="ek vj 2xl:ud-text-title-lg kk wm nb qb">Link Download</h2>
-              <p>
-                <a href="{{ $buku->getFirstMedia('buku_file')->getFullUrl() }}" target="_blank" class="ek rg lk ml il gi ri mh tl"><i class="fa fa-eye"></i> Lihat</a>
-                <a href="{{ $buku->getFirstMedia('buku_file')->getFullUrl() }}" download="{{ $buku->judul }}.pdf" target="_blank" class="ek rg lk ml il gi ri gh tl"><i class="mdi mdi-download"></i> Download</a>
+                {!! $kliping->isi !!}
               </p>
             </div>
           </div>
@@ -53,9 +47,6 @@
 
               <ul>
                 <li class="ql vb du-ease-in-out il xl">
-                  <a href="{{ route('buku.index') }}">Buku Digital</a>
-                </li>
-                <li class="ql vb du-ease-in-out il xl">
                   <a href="{{ route('kliping.index') }}">Kliping Digital</a>
                 </li>
                 <li class="ql vb du-ease-in-out il xl">
@@ -68,11 +59,11 @@
               <h4 class="tj kk wm qb">Related Posts</h4>
 
               <div>
-                  @forelse ($bukuNew as $item)
+                  @forelse ($klipingNew as $item)
                     <div class="tc fg 2xl:ud-gap-6 qb">
                         <img style="width: 25% !important; height: 50px;" src="{{ $item->getFirstMediaUrl('cover') ? $item->getFirstMediaUrl('cover') : asset('assets_home/images/default-cover.jpg') }}" alt="{{ $item->judul }}" />
                         <h5 class="wj kk wm xl bn ml il">
-                            <a href="{{ route('buku.show', $item->id) }}">{{ $buku->judul }}</a>
+                            <a href="{{ route('buku.show', $item->id) }}">{{ $kliping->judul }}</a>
                         </h5>
                     </div>
                     @empty

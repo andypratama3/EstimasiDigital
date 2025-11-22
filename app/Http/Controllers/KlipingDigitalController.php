@@ -47,6 +47,12 @@ class KlipingDigitalController extends AppBaseController
 
         $klipingDigital = $this->klipingDigitalRepository->create($input);
 
+        if ($request->hasFile('cover')) {
+            $klipingDigital->addMediaFromRequest('cover')
+                ->toMediaCollection('cover');
+        }
+
+
         Flash::success('Kliping Digital saved successfully.');
 
         return redirect(route('klipingDigitals.index'));
@@ -98,6 +104,13 @@ class KlipingDigitalController extends AppBaseController
         }
 
         $klipingDigital = $this->klipingDigitalRepository->update($request->all(), $id);
+
+         // Replace COVER
+        if ($request->hasFile('cover')) {
+            $klipingDigital->clearMediaCollection('cover');
+            $klipingDigital->addMediaFromRequest('cover')
+                ->toMediaCollection('cover');
+        }
 
         Flash::success('Kliping Digital updated successfully.');
 

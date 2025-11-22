@@ -14,7 +14,7 @@
                     </h4>
 
                     {!! Form::model($klipingDigital, ['route' => ['klipingDigitals.update', $klipingDigital->id],
-                    'method' => 'patch', 'class' => 'forms-sample']) !!}
+                    'method' => 'patch', 'class' => 'forms-sample','files' => true]) !!}
 
                     <div class="row">
                         @include('kliping_digitals.fields')

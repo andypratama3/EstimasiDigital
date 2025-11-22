@@ -6,90 +6,36 @@
                  <span class="menu-title">Dashboard</span>
              </a>
          </li>
-         <li class="nav-item {{ (Route::is('bukuDigitals.*') || Route::is('klipingDigitals.*') || Route::is('jurnalDigitals.*')) ? 'active' : '' }}">
-             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                 <i class="icon-layout menu-icon"></i>
-                 <span class="menu-title">Asset Digital</span>
-                 <i class="menu-arrow"></i>
+         <li class="nav-item {{ Route::is('bukuDigitals.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('bukuDigitals.index') }}">
+                 <i class="icon-paper menu-icon"></i>
+                 <span class="menu-title">Buku Digital</span>
              </a>
-             <div class="collapse {{ (Route::is('bukuDigitals.*') || Route::is('klipingDigitals.*') || Route::is('jurnalDigitals.*')) ? 'show' : '' }}" id="ui-basic">
-                 <ul class="nav flex-column sub-menu">
-                     <li class="nav-item {{ Route::is('bukuDigitals.*') ? 'active' : '' }}"> <a class="nav-link" href="{{ route('bukuDigitals.index') }}">Buku Digital</a>
-                     </li>
-                     <li class="nav-item {{ Route::is('klipingDigitals.*') ? 'active' : '' }}"> <a class="nav-link" href="{{ route('klipingDigitals.index') }}">Kliping
-                             Digital</a></li>
-                     <li class="nav-item {{ Route::is('jurnalDigitals.*') ? 'active' : '' }}"> <a class="nav-link" href="{{ route('jurnalDigitals.index') }}">Jurnal
-                             Digitial</a></li>
-                 </ul>
-             </div>
          </li>
-         <li class="nav-item">
-             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                 <i class="icon-bar-graph menu-icon"></i>
-                 <span class="menu-title">Charts</span>
-                 <i class="menu-arrow"></i>
+         <li class="nav-item {{ Route::is('klipingDigitals.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('klipingDigitals.index') }}">
+                 <i class="icon-paper menu-icon"></i>
+                 <span class="menu-title">Kliping Digital</span>
              </a>
-             <div class="collapse" id="charts">
-                 <ul class="nav flex-column sub-menu">
-                     <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                 </ul>
-             </div>
          </li>
-         <li class="nav-item">
-             <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                 <i class="icon-grid-2 menu-icon"></i>
-                 <span class="menu-title">Tables</span>
-                 <i class="menu-arrow"></i>
+         <li class="nav-item {{ Route::is('jurnalDigitals.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('jurnalDigitals.index') }}">
+                 <i class="icon-paper menu-icon"></i>
+                 <span class="menu-title">Jurnal Digital</span>
              </a>
-             <div class="collapse" id="tables">
-                 <ul class="nav flex-column sub-menu">
-                     <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                 </ul>
-             </div>
          </li>
-         <li class="nav-item">
-             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                 <i class="icon-contract menu-icon"></i>
-                 <span class="menu-title">Icons</span>
-                 <i class="menu-arrow"></i>
-             </a>
-             <div class="collapse" id="icons">
-                 <ul class="nav flex-column sub-menu">
-                     <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                 </ul>
-             </div>
-         </li>
-         <li class="nav-item">
+         <li class="nav-item {{ Route::is('users.index') || Route::is('roles.index') ? 'active' : '' }}">
              <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
                  <i class="icon-head menu-icon"></i>
                  <span class="menu-title">User Pages</span>
                  <i class="menu-arrow"></i>
              </a>
-             <div class="collapse" id="auth">
+             <div class="collapse {{ (Route::is('users.*') || Route::is('roles.*')) ? 'show' : '' }}" id="auth">
                  <ul class="nav flex-column sub-menu">
-                     <li class="nav-item"> <a class="nav-link" href="{{ route('users.index') }}"> Pengguna </a></li>
-                     <li class="nav-item"> <a class="nav-link" href="{{ route('roles.index') }}"> Role </a></li>
+                     <li class="nav-item {{ Route::is('users.index') ? 'active' : '' }}"> <a class="nav-link" href="{{ route('users.index') }}"> Pengguna </a></li>
+                     <li class="nav-item {{ Route::is('roles.index') ? 'active' : '' }}"> <a class="nav-link" href="{{ route('roles.index') }}"> Role </a></li>
                  </ul>
              </div>
-         </li>
-         <li class="nav-item">
-             <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-                 <i class="icon-ban menu-icon"></i>
-                 <span class="menu-title">Error pages</span>
-                 <i class="menu-arrow"></i>
-             </a>
-             <div class="collapse" id="error">
-                 <ul class="nav flex-column sub-menu">
-                     <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                     <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                 </ul>
-             </div>
-         </li>
-         <li class="nav-item">
-             <a class="nav-link" href="pages/documentation/documentation.html">
-                 <i class="icon-paper menu-icon"></i>
-                 <span class="menu-title">Documentation</span>
-             </a>
          </li>
      </ul>
  </nav>

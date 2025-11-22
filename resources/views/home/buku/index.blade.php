@@ -32,7 +32,7 @@
                        </p>
 
                        <div class="tc tf yo zf mb">
-                           <a href="#!" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
+                           <a href="{{ route('buku.show', $lastBuku->id) }}" class="ek jk lk gh gi hi rg ml il vc _d _l">Get Started Now</a>
 
                            <span class="tc sf">
                                <a href="#!" class="inline-block ek xj kk wm"> Call us (0123) 456 – 789 </a>

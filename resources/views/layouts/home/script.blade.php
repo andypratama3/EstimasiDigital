@@ -36,3 +36,4 @@
     };
   </script>
   <script defer src="{{ asset('assets_home/bundle.js') }}"></script>
+  

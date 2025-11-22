@@ -44,8 +44,8 @@
               <!-- Dropdown Start -->
               <ul class="a" :class="{ 'tc': dropdown }">
                 <li><a href="{{ route('buku.index') }}" class="xl" :class="{ 'mk': page === 'blog-grid' }">Buku Digital</a></li>
-                <li><a href="blog-single.html" class="xl" :class="{ 'mk': page === 'blog-single' }">Kliping Digital</a></li>
-                <li><a href="signin.html" class="xl" :class="{ 'mk': page === 'signin' }">Jurnal</a></li>
+                <li><a href="{{ route('kliping.index') }}" class="xl" :class="{ 'mk': page === 'blog-single' }">Kliping Digital</a></li>
+                <li><a href="{{ route('jurnal.index') }}" class="xl" :class="{ 'mk': page === 'signin' }">Jurnal</a></li>
               </ul>
               <!-- Dropdown End -->
             </li>
@@ -69,9 +69,9 @@
             </label>
           </div>
 
-          <a href="signin.html" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
+          <a href="{{ route('register') }}" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
             class="ek pk xl">Sign In</a>
-          <a href="signup.html" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
+          <a href="{{ route('login') }}" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
             class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
         </div>
       </div>

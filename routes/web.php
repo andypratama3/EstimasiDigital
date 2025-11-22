@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Home\BukuDigitalController as HomeBukuDigitalController;
+use App\Http\Controllers\Home\KlipingDigitalController as HomeKlipingDigitalController;
+use App\Http\Controllers\Home\JurnalDigitalController as HomeJurnalDigitalController;
 
 
 
@@ -19,8 +21,15 @@ use App\Http\Controllers\Home\BukuDigitalController as HomeBukuDigitalController
 
 Route::group(['prefix' => '/'], function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    // buku
     Route::get('/buku', [HomeBukuDigitalController::class, 'index'])->name('buku.index');
     Route::get('/buku/{id}', [HomeBukuDigitalController::class, 'show'])->name('buku.show');
+    // Kliping
+    Route::get('/kliping', [HomeKlipingDigitalController::class, 'index'])->name('kliping.index');
+    Route::get('/kliping/{id}', [HomeKlipingDigitalController::class, 'show'])->name('kliping.show');
+
+    Route::get('/jurnal', [HomeJurnalDigitalController::class, 'index'])->name('jurnal.index');
+    Route::get('/jurnal/{id}', [HomeJurnalDigitalController::class, 'show'])->name('jurnal.show');
 });
 
 

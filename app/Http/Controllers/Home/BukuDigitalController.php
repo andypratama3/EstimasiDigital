@@ -10,8 +10,10 @@ class BukuDigitalController extends Controller
 {
     public function index()
     {
-        $lastBuku = BukuDigital::latest()->first();
-        $bukus = BukuDigital::orderBy('created_at', 'asc')->get();
+        $lastBuku = BukuDigital::where('is_protected', 0)->where('is_deleted', 0)->latest()->first();
+        $bukus = BukuDigital::where('is_protected', 0)->where('is_deleted', 0)->orderBy('created_at', 'asc')->get();
+
+
         return view('home.buku.index', compact('lastBuku','bukus'));
     }
 
@@ -19,6 +21,12 @@ class BukuDigitalController extends Controller
     {
         $buku = BukuDigital::where('id', $id)->firstOrFail();
 
-        return view('home.buku.show', compact('buku'));
+        $bukuNew = BukuDigital::where('is_protected', 0)
+            ->where('is_deleted', 0)
+            ->orderBy('created_at', 'desc')
+            ->limit(5)
+            ->get();
+
+        return view('home.buku.show', compact('buku','bukuNew'));
     }
 }
