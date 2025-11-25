@@ -1,8 +1,8 @@
 <nav class="flex-row p-0 navbar col-lg-12 col-12 fixed-top d-flex">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="mr-5 navbar-brand brand-logo" href="index.html"><img src="{{ asset('assets/images/logo.svg') }}"
+        <a class="mr-5 navbar-brand brand-logo" href="{{ route('dashboard.index') }}"><img src="{{ asset('assets_home/images/logo1.png') }}"
                 class="mr-2" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('assets/images/logo-mini.svg') }}"
+        <a class="navbar-brand brand-logo-mini" href="{{ route('dashboard.index') }}"><img src="{{ asset('assets_home/images/logo1.png') }}"
                 alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
