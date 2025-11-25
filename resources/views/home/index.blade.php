@@ -32,8 +32,8 @@
     <!-- ===== Hero End ===== -->
 
     <!-- ===== Small Features Start ===== -->
-    <section id="features">
-      <div class="bb ze ki yn 2xl:ud-px-12.5">
+    <section id="features" style="margin-bottom: 40px !important;">
+      <div class="bb ze ki yn 2xl:ud-px-12.5 ">
         <div class="tc uf zo xf ap zf bp mq">
           <!-- Small Features Item -->
           <div class="animate_top kn to/3 tc cg oq">

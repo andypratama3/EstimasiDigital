@@ -1,10 +1,11 @@
+
  <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
     @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
     <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
       <div class="vd to/4 tc wf yf">
         <a href="/">
-          <img class="om" src="{{ asset('assets_home/images/logo-light.svg')}}" alt="Logo Light" />
-          <img class="xc nm" src="{{ asset('assets_home/images/logo-dark.svg')}}" alt="Logo Dark" />
+          <img class="om logo-custom"  style="width: 30% !important; border-radius: 10px !important;" src="{{ asset('assets_home/images/logo1.png')}}" alt="Logo Light" />
+          <img class="xc nm logo-custom" style="width: 30% !important; border-radius: 10px !important;" src="{{ asset('assets_home/images/logo1.png')}}" alt="Logo Dark" />
         </a>
 
         <!-- Hamburger Toggle BTN -->
@@ -68,11 +69,11 @@
               <img class="xc nm" src="{{ asset('assets_home/images/icon-moon.svg')}}" alt="Moon" />
             </label>
           </div>
-
+{{--
           <a href="{{ route('register') }}" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
-            class="ek pk xl">Sign In</a>
+            class="ek pk xl">Sign In</a> --}}
           <a href="{{ route('login') }}" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
-            class="lk gh dk rg tc wf xf _l gi hi">Sign Up</a>
+            class="lk gh dk rg tc wf xf _l gi hi">Login</a>
         </div>
       </div>
     </div>
