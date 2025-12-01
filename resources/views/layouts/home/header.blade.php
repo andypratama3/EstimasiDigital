@@ -4,8 +4,8 @@
     <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
       <div class="vd to/4 tc wf yf">
         <a href="/">
-          <img class="om logo-custom"  style="width: 30% !important; border-radius: 10px !important;" src="{{ asset('assets_home/images/logo1.png')}}" alt="Logo Light" />
-          <img class="xc nm logo-custom" style="width: 30% !important; border-radius: 10px !important;" src="{{ asset('assets_home/images/logo1.png')}}" alt="Logo Dark" />
+          <img class="om logo-custom"  style="width: 20% !important; border-radius: 10px !important;" src="{{ asset('assets_home/logo-1.png')}}" alt="Logo Light" />
+          <img class="xc nm logo-custom" style="width: 20% !important; border-radius: 10px !important;" src="{{ asset('assets_home/logo-1.png')}}" alt="Logo Dark" />
         </a>
 
         <!-- Hamburger Toggle BTN -->
@@ -54,7 +54,7 @@
           </ul>
         </nav>
 
-        <div class="tc wf ig pb no">
+        <div class="tc wf ig pb no" style="color: black !important;">
           <div class="pc h io pa ra" :class="navigationOpen ? '!-ud-visible' : 'd'">
             <label class="rc ab i">
               <input type="checkbox" :value="darkMode" @change="darkMode = !darkMode" class="pf vd yc uk h r za ab" />

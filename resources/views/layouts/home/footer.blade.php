@@ -5,8 +5,8 @@
         <div class="tc uf ap gg fp">
           <div class="animate_top zd/2 to/4">
             <a href="{{ route('home') }}">
-             <img class="om logo-custom"  style="width: 30% !important; border-radius: 10px !important;" src="{{ asset('assets_home/images/logo1.png')}}" alt="Logo Light" />
-          <img class="xc nm logo-custom" style="width: 30% !important; border-radius: 10px !important;" src="{{ asset('assets_home/images/logo1.png')}}" alt="Logo Dark" />
+             <img class="om logo-custom"  style="width: 20% !important; border-radius: 10px !important;" src="{{ asset('assets_home/logo-1.png')}}" alt="Logo Light" />
+          <img class="xc nm logo-custom" style="width: 20% !important; border-radius: 10px !important;" src="{{ asset('assets_home/logo-1.png')}}" alt="Logo Dark" />
             </a>
 
             <p class="lc fb">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
