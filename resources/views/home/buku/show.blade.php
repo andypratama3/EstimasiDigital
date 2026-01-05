@@ -25,7 +25,6 @@
               <h2 class="ek vj 2xl:ud-text-title-lg kk wm nb qb">Link Download</h2>
               <p>
                 <a href="{{ $buku->getFirstMedia('buku_file')->getFullUrl() }}" target="_blank" class="ek rg lk ml il gi ri mh tl"><i class="fa fa-eye"></i> Lihat</a>
-                <a href="{{ $buku->getFirstMedia('buku_file')->getFullUrl() }}" download="{{ $buku->judul }}.pdf" target="_blank" class="ek rg lk ml il gi ri gh tl"><i class="mdi mdi-download"></i> Download</a>
               </p>
             </div>
           </div>

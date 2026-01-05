@@ -29,9 +29,9 @@ class HomeController extends Controller
                 ->where('is_deleted','!=', 1)
                 ->get();
 
-        $countkliping = $klipingDigital->count();
-        $countjurnal = $jurnalDigital->count();
-        $countbuku = $bukuDigital->count();
+        $countbuku = BukuDigital::where('is_protected', 1)->where('is_deleted','!=', 1)->count();
+        $countkliping = KlipingDigital::where('is_protected', 1)->where('is_deleted','!=', 1)->count();
+        $countjurnal = JurnalDigital::where('is_protected', 1)->where('is_deleted','!=', 1)->count();
 
         // dd($klipingDigital, $jurnalDigital, $bukuDigital);
         return view('home.index', compact('klipingDigital','jurnalDigital','bukuDigital','countkliping','countjurnal','countbuku'));

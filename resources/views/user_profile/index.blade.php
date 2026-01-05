@@ -200,13 +200,7 @@
                         </div>
 
                         {{-- Profile Photo --}}
-                        <div class="mb-3 col-md-6">
-                            <label class="form-label">Profile Photo</label>
-                            <input type="file" name="profile_photo" class="form-control">
-                            <small class="text-muted">
-                                Leave empty if you don't want to change the photo.
-                            </small>
-                        </div>
+                   
 
                         {{-- Password --}}
                         <div class="mb-3 col-md-6">

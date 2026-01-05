@@ -1,6 +1,52 @@
+<header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
+    x-data="{
+        page: 'home',
+        darkMode: false,
+        navigationOpen: false,
+        stickyMenu: false,
+        activeSection: 'home',
+        handleScroll() {
+            this.stickyMenu = window.pageYOffset > 20;
 
- <header class="g s r vd ya cj" :class="{ 'hh sm _k dj bl ll' : stickyMenu }"
-    @scroll.window="stickyMenu = (window.pageYOffset > 20) ? true : false">
+            // Check URL hash first
+            const hash = window.location.hash;
+            if (hash === '#features') {
+                this.activeSection = 'features';
+                return;
+            }
+            if (hash === '#support') {
+                this.activeSection = 'support';
+                return;
+            }
+
+            // Fallback to scroll detection
+            const supportSection = document.getElementById('support');
+            const featuresSection = document.getElementById('features');
+
+            if (supportSection) {
+                const supportTop = supportSection.getBoundingClientRect().top;
+                if (supportTop <= 300) {
+                    this.activeSection = 'support';
+                    return;
+                }
+            }
+
+            if (featuresSection) {
+                const featuresTop = featuresSection.getBoundingClientRect().top;
+                if (featuresTop <= 300) {
+                    this.activeSection = 'features';
+                    return;
+                }
+            }
+
+            this.activeSection = 'home';
+        },
+        init() {
+            this.handleScroll();
+        }
+    }"
+    @load="init()"
+    @scroll.window="handleScroll()">
     <div class="bb ze ki xn 2xl:ud-px-0 oo wf yf i">
       <div class="vd to/4 tc wf yf">
         <a href="/">
@@ -28,8 +74,11 @@
       <div class="vd wo/4 sd qo f ho oo wf yf" :class="{ 'd hh rm sr td ud qg ug jc yh': navigationOpen }">
         <nav>
           <ul class="tc _o sf yo cg ep">
-            <li><a href="/" class="xl" :class="{ 'mk': page === 'home' }">Home</a></li>
-            <li><a href="/#features" class="xl">Features</a></li>
+
+            <li><a href="/" class="xl" :class="{ 'mk': activeSection === 'home' }">Home</a></li>
+
+            <li><a href="/#features" class="xl" :class="{ 'mk': activeSection === 'features' }">Features</a></li>
+
             <li class="c i" x-data="{ dropdown: false }">
               <a href="#!" class="xl tc wf yf bg" @click.prevent="dropdown = !dropdown"
                 :class="{ 'mk': page === 'blog-grid' || page === 'blog-single' || page === 'signin' || page === 'signup' || page === '404' }">
@@ -50,7 +99,7 @@
               </ul>
               <!-- Dropdown End -->
             </li>
-            <li><a href="/#support" class="xl">Support</a></li>
+            <li><a href="/#support" class="xl" :class="{ 'mk': activeSection === 'support' }">Support</a></li>
           </ul>
         </nav>
 
@@ -69,9 +118,6 @@
               <img class="xc nm" src="{{ asset('assets_home/images/icon-moon.svg')}}" alt="Moon" />
             </label>
           </div>
-{{--
-          <a href="{{ route('register') }}" :class="{ 'nk yl' : page === 'home', 'ok' : page === 'home' && stickyMenu }"
-            class="ek pk xl">Sign In</a> --}}
           <a href="{{ route('login') }}" :class="{ 'hh/[0.15]' : page === 'home', 'sh' : page === 'home' && stickyMenu }"
             class="lk gh dk rg tc wf xf _l gi hi">Login</a>
         </div>
